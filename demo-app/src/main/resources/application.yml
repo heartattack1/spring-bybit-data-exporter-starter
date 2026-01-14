@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bybit
+    username: bybit
+    password: bybit
+  flyway:
+    enabled: true
+
+bybit:
+  exporter:
+    enabled: true
+    base-url: https://api.bybit.com
+    category: spot
+    symbols:
+      - BTCUSDT
+      - ETHUSDT
+    interval: "60"
+    from: 2020-01-01T00:00:00Z
+    to: 2020-02-01T00:00:00Z
+    limit: 1000
+    max-parallelism: 2
+    request-delay-ms: 200
+    retry:
+      max-attempts: 3
+      backoff-ms: 500
